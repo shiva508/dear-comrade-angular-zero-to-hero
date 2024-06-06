@@ -15,12 +15,10 @@ import { TaskComponent } from './task/task.component';
 export class AppComponent {
   title = 'dear-comrade-angular-zero-to-hero';
   users = DUMMY_USERS;
-  userId = '';
-  userName: string = '';
+
+  user!: { id: string; name: string; avatar: string };
 
   onSelectUser(id: string) {
-    console.log(id);
-    this.userId = id;
-    this.userName = DUMMY_USERS.find((user) => user.id === this.userId)?.name!;
+    this.user = DUMMY_USERS.find((user) => user.id === id)!;
   }
 }

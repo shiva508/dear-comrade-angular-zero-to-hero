@@ -8,6 +8,9 @@ import { Component, Input } from '@angular/core';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  @Input({ required: true }) id?: string;
-  @Input({ required: true }) name: string | undefined;
+  @Input({ required: true }) user?: {
+    id: string;
+    name: string;
+    avatar: string;
+  };
 }
