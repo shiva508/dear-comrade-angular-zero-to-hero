@@ -1,13 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [LifecycleComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'dear-comrade-angular-zero-to-hero';
+  lifecycleComponentIsVisible = false;
+  lifecycleInputText = 'Some Random Number: ' + Math.random() * 100;
+
+  onToggleLifecycleComponentVisibility() {
+    this.lifecycleComponentIsVisible = !this.lifecycleComponentIsVisible;
+  }
+
+  onChangeLifecycleInputText() {
+    this.lifecycleInputText = 'Some Random Number: ' + Math.random() * 100;
+  }
 }
