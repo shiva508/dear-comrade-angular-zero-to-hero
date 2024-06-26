@@ -18,7 +18,7 @@ import { interval } from 'rxjs';
     DashboardItemComponent,
   ],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   dummyTrafficData = [
     {
       id: 'd1',
@@ -50,19 +50,6 @@ export class AppComponent implements OnInit {
     },
   ];
   maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
-  currentStatus: 'online' | 'offline' | 'unknown' = 'online';
-  constructor() {}
 
-  ngOnInit() {
-    setInterval(() => {
-      const rans = Math.random();
-      if (rans < 0.5) {
-        this.currentStatus = 'online';
-      } else if (rans < 0.9) {
-        this.currentStatus = 'offline';
-      } else {
-        this.currentStatus = 'unknown';
-      }
-    }, 5000);
-  }
+  constructor() {}
 }
